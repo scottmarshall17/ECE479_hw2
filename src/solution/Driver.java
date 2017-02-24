@@ -11,9 +11,11 @@ public class Driver {
         State complexStart = new State(start_arr);
         State complexGoal = new State(goal_arr);
         Puzzle complexPuzzle = new Puzzle(complexStart, complexGoal, new DisplacedTiles());
+        Puzzle manhattanPuzzle = new Puzzle(complexStart, complexGoal, new ManhattanDistance());
 
         simplePuzzle.solve();
         complexPuzzle.solve();
+        manhattanPuzzle.solve();
 
         return;
     }
