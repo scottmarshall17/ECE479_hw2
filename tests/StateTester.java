@@ -68,4 +68,14 @@ public class StateTester {
         Assert.assertFalse(s1.moveUp());
 
     }
+
+    @Test
+    public void equalsTester() {
+        int[] s1_arr = {0, 1, 2, 3, 4, 5, 6, 7, 8};
+        int[] s2_arr = {0, 1, 2, 3, 4, 5, 6, 7, 8};
+        State s1 = new State(s1_arr, 1, 3);
+        State s2 = new State(s2_arr, 2, 2);
+
+        Assert.assertEquals(s1, s2);
+    }
 }

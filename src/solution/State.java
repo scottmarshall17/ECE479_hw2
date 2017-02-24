@@ -33,6 +33,13 @@ public class State {
         System.arraycopy(vals, 0, this.state, 0, 9);
     }
 
+    public State(State s) {
+        this.state = new int[9];
+        System.arraycopy(s.getState(), 0, this.state, 0, 9);
+        this.h_x = s.getH();
+        this.g_x = s.getG();
+    }
+
     public int[] getState() {
         return this.state;
     }
@@ -47,6 +54,14 @@ public class State {
 
     public int getF() {
         return this.g_x + this.h_x;
+    }
+
+    public void setH(int val) {
+        this.h_x = val;
+    }
+
+    public void setG(int val) {
+        this.g_x = val;
     }
 
     public boolean moveUp() {
@@ -162,6 +177,10 @@ public class State {
         result = result * 13;
         result += this.toString().hashCode();
         return result;
+    }
+
+    public boolean equals(Object s) {
+        return this.toString().equals(s.toString());
     }
 
 }
