@@ -21,12 +21,14 @@ public class ManhattanDistance implements Heuristic {
         }
 
         for (int i = 0; i < 9; i++) {
-            currRow = i / 3;
-            currCol = i % 3;
-            tempLocation = locations[goal_arr[i]];
-            goalRow = tempLocation / 3;
-            goalCol = tempLocation % 3;
-            result += Math.abs(currRow - goalRow) + Math.abs(currCol - goalCol);
+            if (goal_arr[i] != 0) {
+                currRow = i / 3;
+                currCol = i % 3;
+                tempLocation = locations[goal_arr[i]];
+                goalRow = tempLocation / 3;
+                goalCol = tempLocation % 3;
+                result += Math.abs(currRow - goalRow) + Math.abs(currCol - goalCol);
+            }
         }
 
         return result;
