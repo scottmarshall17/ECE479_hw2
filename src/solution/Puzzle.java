@@ -11,20 +11,23 @@ public class Puzzle {
     private HashSet<State> visited;
     State startState;
     State goalState;
+    Heuristic heuristic;
 
     public Puzzle() {
         this.visited = new HashSet<State>(100);
         this.visitingQueue = new PriorityQueue<State>(100, new StateComparator()); //TODO: insert comparator here and make sure it is functionally correct
-        int[] start = {0, 1, 2, 3, 4, 5, 6, 7, 8};
-        int[] end = {3, 1, 2, 4, 0, 5, 6, 7, 8};
+        int[] start = {1, 2, 3, 0, 4, 5, 6, 7, 8};
+        int[] end = {1, 2, 3, 4, 7, 5, 6, 8, 0};
         this.startState = new State(start);
         this.goalState = new State(end);
+        this.heuristic = new DisplacedTiles();
     }
-    public Puzzle(State start, State finish) {
+    public Puzzle(State start, State finish, Heuristic h) {
         this.visited = new HashSet<State>(100);
         this.visitingQueue = new PriorityQueue(100, new StateComparator());
         this.startState = start;
         this.goalState = finish;
+        this.heuristic = h;
     }
 
     public boolean solve() {
@@ -36,6 +39,7 @@ public class Puzzle {
             currState = visitingQueue.poll();
             if (currState.equals(this.goalState)) {
                 System.out.println("A solution was found!");
+                System.out.println("The solution was found in " + currState.getG() + " steps");
                 result = true;
                 break;
             }
@@ -47,7 +51,7 @@ public class Puzzle {
                     tempState = new State(currState);
                     currState.moveDown();
                     tempState.setG(currState.getG() + 1);
-                    tempState.setH(0); //TODO: add a heuristic here
+                    tempState.setH(this.heuristic.calculateH(tempState, this.goalState)); //TODO: add a heuristic here
                     if (!this.visited.contains(tempState)) {
                         this.visitingQueue.add(tempState);
                     }
@@ -56,7 +60,7 @@ public class Puzzle {
                     tempState = new State(currState);
                     currState.moveLeft();
                     tempState.setG(currState.getG() + 1);
-                    tempState.setH(0); //TODO: add a heuristic here
+                    tempState.setH(this.heuristic.calculateH(tempState, this.goalState)); //TODO: add a heuristic here
                     if (!this.visited.contains(tempState)) {
                         this.visitingQueue.add(tempState);
                     }
@@ -66,7 +70,7 @@ public class Puzzle {
                     tempState = new State(currState);
                     currState.moveUp();
                     tempState.setG(currState.getG() + 1);
-                    tempState.setH(0); //TODO: add a heuristic here
+                    tempState.setH(this.heuristic.calculateH(tempState, this.goalState)); //TODO: add a heuristic here
                     if (!this.visited.contains(tempState)) {
                         this.visitingQueue.add(tempState);
                     }
@@ -76,7 +80,7 @@ public class Puzzle {
                     tempState = new State(currState);
                     currState.moveRight();
                     tempState.setG(currState.getG() + 1);
-                    tempState.setH(0); //TODO: add a heuristic here
+                    tempState.setH(this.heuristic.calculateH(tempState, this.goalState)); //TODO: add a heuristic here
                     if (!this.visited.contains(tempState)) {
                         this.visitingQueue.add(tempState);
                     }
