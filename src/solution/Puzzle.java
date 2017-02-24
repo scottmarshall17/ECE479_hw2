@@ -1,5 +1,6 @@
 package solution;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.PriorityQueue;
 
@@ -93,5 +94,10 @@ public class Puzzle {
         return result;
     }
 
+    public State[] order() { //Required method for assignment. Deprecated by priority queue
+        State[] result = this.visitingQueue.toArray(new State[0]);
+        Arrays.sort(result, new StateComparator());
+        return result;
+    }
 
 }

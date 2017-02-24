@@ -1,14 +1,16 @@
 package solution;
 
 import java.lang.*;
+import java.util.ArrayList;
 
 /**
  * Created by Scott on 2/23/2017.
  */
 public class State {
     private int[] state;
-    int g_x;
-    int h_x;
+    private State from;
+    private int g_x;
+    private int h_x;
 
     public State() {
         this.state = new int[9];
@@ -42,6 +44,14 @@ public class State {
 
     public int[] getState() {
         return this.state;
+    }
+
+    public State getFrom() {
+        return this.from;
+    }
+
+    public void setFrom(State lastState) {
+        this.from = lastState;
     }
 
     public int getH() {
@@ -158,6 +168,42 @@ public class State {
         }
 
         return result;
+    }
+
+    public ArrayList<State> expand() {
+        ArrayList<State> result = new ArrayList<State>();
+        State tempState;
+
+        if (this.moveUp()) {
+            tempState = new State(this);
+            this.moveDown();
+            tempState.setG(this.getG() + 1);
+            result.add(tempState);
+        }
+        if (this.moveRight()) {
+            tempState = new State(this);
+            this.moveLeft();
+            tempState.setG(this.getG() + 1);
+            result.add(tempState);
+        }
+        if (this.moveDown()) {
+            tempState = new State(this);
+            this.moveUp();
+            tempState.setG(this.getG() + 1);
+            result.add(tempState);
+        }
+        if (this.moveLeft()) {
+            tempState = new State(this);
+            this.moveRight();
+            tempState.setG(this.getG() + 1);
+            result.add(tempState);
+        }
+
+        return result;
+    }
+
+    public boolean equalState(Object s) {   //Required...
+        return this.toString().equals(s.toString());
     }
 
     public String toString() {
