@@ -23,7 +23,7 @@ public class Puzzle {
     }
     public Puzzle(State start, State finish, Heuristic h) {
         this.visited = new HashMap<State, State>(100);
-        this.visitingQueue = new PriorityQueue(100, new StateComparator());
+        this.visitingQueue = new PriorityQueue<State>(100, new StateComparator());
         this.startState = start;
         this.goalState = finish;
         this.heuristic = h;
