@@ -41,6 +41,18 @@ public class Puzzle {
             if (currState.equals(this.goalState)) {
                 System.out.println("A solution was found!");
                 System.out.println("The solution was found in " + currState.getG() + " steps");
+                tempState = currState;
+                State[] allVisited = visited.toArray(new State[0]);
+                while (tempState.getFrom() != null) {
+                    System.out.println(tempState);
+                    for (int i = 0; i < allVisited.length; i++) {
+                        if (allVisited[i].equals(tempState.getFrom())) {
+                            tempState = allVisited[i];
+                            break;
+                        }
+                    }
+                }
+                System.out.println(tempState);
                 result = true;
                 break;
             }
@@ -51,6 +63,7 @@ public class Puzzle {
                 if (currState.moveUp()) {
                     tempState = new State(currState);
                     currState.moveDown();
+                    tempState.setFrom(currState);
                     tempState.setG(currState.getG() + 1);
                     tempState.setH(this.heuristic.calculateH(tempState, this.goalState)); //TODO: add a heuristic here
                     if (!this.visited.contains(tempState)) {
@@ -60,6 +73,7 @@ public class Puzzle {
                 if (currState.moveRight()) {
                     tempState = new State(currState);
                     currState.moveLeft();
+                    tempState.setFrom(currState);
                     tempState.setG(currState.getG() + 1);
                     tempState.setH(this.heuristic.calculateH(tempState, this.goalState)); //TODO: add a heuristic here
                     if (!this.visited.contains(tempState)) {
@@ -70,6 +84,7 @@ public class Puzzle {
                 if (currState.moveDown()) {
                     tempState = new State(currState);
                     currState.moveUp();
+                    tempState.setFrom(currState);
                     tempState.setG(currState.getG() + 1);
                     tempState.setH(this.heuristic.calculateH(tempState, this.goalState)); //TODO: add a heuristic here
                     if (!this.visited.contains(tempState)) {
@@ -80,6 +95,7 @@ public class Puzzle {
                 if (currState.moveLeft()) {
                     tempState = new State(currState);
                     currState.moveRight();
+                    tempState.setFrom(currState);
                     tempState.setG(currState.getG() + 1);
                     tempState.setH(this.heuristic.calculateH(tempState, this.goalState)); //TODO: add a heuristic here
                     if (!this.visited.contains(tempState)) {

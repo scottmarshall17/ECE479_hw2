@@ -16,6 +16,7 @@ public class State {
         this.state = new int[9];
         this.g_x = 0;
         this.h_x = 0;
+        this.from = null;
         for (int i = 0; i < 9; i++) {
             this.state[i] = 0;
         }
@@ -25,6 +26,7 @@ public class State {
         this.state = new int[9];
         this.g_x = 0;
         this.h_x = 0;
+        this.from = null;
         System.arraycopy(vals, 0, this.state, 0, 9);
     }
 
@@ -32,6 +34,7 @@ public class State {
         this.state = new int[9];
         this.g_x = g;
         this.h_x = h;
+        this.from = null;
         System.arraycopy(vals, 0, this.state, 0, 9);
     }
 
@@ -40,6 +43,7 @@ public class State {
         System.arraycopy(s.getState(), 0, this.state, 0, 9);
         this.h_x = s.getH();
         this.g_x = s.getG();
+        this.from = null;
     }
 
     public int[] getState() {
