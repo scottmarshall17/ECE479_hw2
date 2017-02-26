@@ -1,5 +1,9 @@
 package solution;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.*;
 
 /**
@@ -29,19 +33,37 @@ public class Puzzle {
         this.heuristic = h;
     }
 
-    public boolean solve() {
+    public boolean solve(String outFile) {
         boolean result = false;
         int iteration = 0;
         int nodesGenerated = 1;
         Stack<State> solutionPath = new Stack<State>();
         State currState;
         State tempState;
+        String printString;
         visitingQueue.add(this.startState);
         while (!visitingQueue.isEmpty()) {
             currState = visitingQueue.poll();
             if (currState.equals(this.goalState)) {
-                System.out.println("A solution was found!");
-                System.out.println("The solution was found in " + currState.getG() + " steps and " + nodesGenerated + " states were searched. Branching factor: " + Math.pow(nodesGenerated, 1.0/currState.getG()));
+                if (outFile.equals("stdout")) {
+                    System.out.println("A solution was found!");
+                    System.out.println("The solution was found in " + currState.getG() + " steps and " + nodesGenerated + " states were searched. Branching factor: " + Math.pow(nodesGenerated, 1.0/currState.getG()));
+                }
+                else {
+                    try {
+                        printString = "\tThe solution was found in " + currState.getG() + " steps and " + nodesGenerated + " states were searched. Branching factor: " + Math.pow(nodesGenerated, 1.0/currState.getG()) + "\n";
+                        Files.write(Paths.get(outFile), printString.getBytes(), StandardOpenOption.CREATE_NEW);
+                    }
+                    catch (IOException e) {
+                        try {
+                            printString = "\tThe solution was found in " + currState.getG() + " steps and " + nodesGenerated + " states were searched. Branching factor: " + Math.pow(nodesGenerated, 1.0/currState.getG()) + "\n";
+                            Files.write(Paths.get(outFile), printString.getBytes(), StandardOpenOption.APPEND);
+                        }
+                        catch (IOException f) {
+                            f.printStackTrace();
+                        }
+                    }
+                }
                 currState.setIteration(iteration);
                 solutionPath.push(currState);
                 tempState = currState.getFrom();
@@ -49,7 +71,7 @@ public class Puzzle {
                     solutionPath.push(tempState);
                     tempState = this.visited.get(tempState);
                 }
-                this.printSolution(solutionPath);
+                this.printSolution(solutionPath, outFile);
                 result = true;
                 break;
             }
@@ -62,6 +84,7 @@ public class Puzzle {
                     currState.moveDown();
                     tempState.setFrom(currState);
                     tempState.setG(currState.getG() + 1);
+                    tempState.setLastAction("Up");
                     tempState.setH(this.heuristic.calculateH(tempState, this.goalState));
                     if (!this.visited.containsKey(tempState)) {
                         this.visitingQueue.add(tempState);
@@ -72,6 +95,7 @@ public class Puzzle {
                     tempState = new State(currState);
                     currState.moveLeft();
                     tempState.setFrom(currState);
+                    tempState.setLastAction("Right");
                     tempState.setG(currState.getG() + 1);
                     tempState.setH(this.heuristic.calculateH(tempState, this.goalState)); //TODO: add a heuristic here
                     if (!this.visited.containsKey(tempState)) {
@@ -84,6 +108,7 @@ public class Puzzle {
                     tempState = new State(currState);
                     currState.moveUp();
                     tempState.setFrom(currState);
+                    tempState.setLastAction("Down");
                     tempState.setG(currState.getG() + 1);
                     tempState.setH(this.heuristic.calculateH(tempState, this.goalState)); //TODO: add a heuristic here
                     if (!this.visited.containsKey(tempState)) {
@@ -96,6 +121,7 @@ public class Puzzle {
                     tempState = new State(currState);
                     currState.moveRight();
                     tempState.setFrom(currState);
+                    tempState.setLastAction("Left");
                     tempState.setG(currState.getG() + 1);
                     tempState.setH(this.heuristic.calculateH(tempState, this.goalState)); //TODO: add a heuristic here
                     if (!this.visited.containsKey(tempState)) {
@@ -113,11 +139,23 @@ public class Puzzle {
         return result;
     }
 
-    private void printSolution(Stack<State> solution) {
+    private void printSolution(Stack<State> solution, String outFile) {
         State tempState;
+        String printString;
         while (!solution.isEmpty()) {
             tempState = solution.pop();
-            System.out.println(tempState + "; G: " + tempState.getG() + ", H: " + this.heuristic.calculateH(tempState, this.goalState) + ", Iteration: " + tempState.getIteration());
+            if (outFile.equals("stdout")) {
+                System.out.println(tempState + "; G: " + tempState.getG() + ", H: " + this.heuristic.calculateH(tempState, this.goalState) + ", Iteration: " + tempState.getIteration());
+            }
+            else {
+                printString = "\t" + tempState + "; Move: " + tempState.getLastAction() + ",\tG: " + tempState.getG() + ", H: " + this.heuristic.calculateH(tempState, this.goalState) + ", Iteration: " + tempState.getIteration() + "\n";
+                try {
+                    Files.write(Paths.get(outFile), printString.getBytes(), StandardOpenOption.APPEND);
+                }
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
         return;
     }
@@ -141,7 +179,7 @@ public class Puzzle {
             while (!currentQueue.isEmpty() && numFound < numPuzzles) {
                 currState = currentQueue.poll();
                 if (currState.getG() == targetMoves) {
-                    System.out.println(currState);
+                    System.out.println(currState.print());
                     numFound++;
                     continue;
                 } else if (visited.containsKey(currState)) {

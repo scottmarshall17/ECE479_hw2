@@ -34,6 +34,7 @@ public class EightPuzzleSolver {
             int[] goalState_arr = {1, 2, 3, 8, 0, 4, 7, 6, 5};
             State goalState = new State(goalState_arr);
             int[] puzzleMoves = new int[9];
+            int problemNumber = 0;
             while ((fileLine = bufferedReader.readLine()) != null) {
                 puzzleString = fileLine.split(",");
                 for (int i = 0; i < puzzleString.length; i++) {
@@ -41,7 +42,8 @@ public class EightPuzzleSolver {
                 }
                 puzzleStart = new State(puzzleMoves);
                 myPuzzle = new Puzzle(puzzleStart, goalState, new ManhattanDistance());
-                myPuzzle.solve();
+                myPuzzle.solve("test_output.txt");
+                problemNumber++;
             }
         } catch (IOException e) {
             e.printStackTrace();

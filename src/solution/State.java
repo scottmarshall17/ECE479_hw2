@@ -12,6 +12,7 @@ public class State {
     private int g_x;
     private int h_x;
     private int iteration;
+    private String lastMove;
 
     public State() {
         this.state = new int[9];
@@ -49,6 +50,14 @@ public class State {
 
     public int[] getState() {
         return this.state;
+    }
+
+    public void setLastAction(String action) {
+        this.lastMove = action;
+    }
+
+    public String getLastAction() {
+        return this.lastMove;
     }
 
     public State getFrom() {
@@ -218,6 +227,18 @@ public class State {
 
     public boolean equalState(Object s) {   //Required...
         return this.toString().equals(s.toString());
+    }
+
+    public String print() {
+        StringBuilder result = new StringBuilder("");
+
+        for (int i = 0; i < 8; i++) {
+            result.append(this.state[i] + ",");
+        }
+
+        result.append(this.state[8]);
+
+        return result.toString();
     }
 
     public String toString() {
