@@ -11,6 +11,7 @@ public class State {
     private State from;
     private int g_x;
     private int h_x;
+    private int iteration;
 
     public State() {
         this.state = new int[9];
@@ -56,6 +57,15 @@ public class State {
 
     public void setFrom(State lastState) {
         this.from = lastState;
+    }
+
+    public void setIteration(int itr) {
+        this.iteration = itr;
+        return;
+    }
+
+    public int getIteration() {
+        return this.iteration;
     }
 
     public int getH() {

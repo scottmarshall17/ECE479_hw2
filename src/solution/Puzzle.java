@@ -31,6 +31,7 @@ public class Puzzle {
 
     public boolean solve() {
         boolean result = false;
+        int iteration = 0;
         Stack<State> solutionPath = new Stack<State>();
         State currState;
         State tempState;
@@ -40,6 +41,7 @@ public class Puzzle {
             if (currState.equals(this.goalState)) {
                 System.out.println("A solution was found!");
                 System.out.println("The solution was found in " + currState.getG() + " steps");
+                currState.setIteration(iteration);
                 solutionPath.push(currState);
                 tempState = currState.getFrom();
                 while (tempState != null) {
@@ -97,7 +99,9 @@ public class Puzzle {
                     }
                 }
 
+                currState.setIteration(iteration);
                 visited.put(currState, currState.getFrom());
+                iteration++;
             }
 
         }
@@ -105,8 +109,10 @@ public class Puzzle {
     }
 
     private void printSolution(Stack<State> solution) {
+        State tempState;
         while (!solution.isEmpty()) {
-            System.out.println(solution.pop());
+            tempState = solution.pop();
+            System.out.println(tempState + "; G: " + tempState.getG() + ", H: " + this.heuristic.calculateH(tempState, this.goalState) + ", Iteration: " + tempState.getIteration());
         }
         return;
     }
