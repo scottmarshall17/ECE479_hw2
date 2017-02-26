@@ -32,6 +32,7 @@ public class Puzzle {
     public boolean solve() {
         boolean result = false;
         int iteration = 0;
+        int nodesGenerated = 1;
         Stack<State> solutionPath = new Stack<State>();
         State currState;
         State tempState;
@@ -40,7 +41,7 @@ public class Puzzle {
             currState = visitingQueue.poll();
             if (currState.equals(this.goalState)) {
                 System.out.println("A solution was found!");
-                System.out.println("The solution was found in " + currState.getG() + " steps");
+                System.out.println("The solution was found in " + currState.getG() + " steps and " + nodesGenerated + " states were searched. Branching factor: " + Math.pow(nodesGenerated, 1.0/currState.getG()));
                 currState.setIteration(iteration);
                 solutionPath.push(currState);
                 tempState = currState.getFrom();
@@ -64,6 +65,7 @@ public class Puzzle {
                     tempState.setH(this.heuristic.calculateH(tempState, this.goalState));
                     if (!this.visited.containsKey(tempState)) {
                         this.visitingQueue.add(tempState);
+                        nodesGenerated++;
                     }
                 }
                 if (currState.moveRight()) {
@@ -74,6 +76,7 @@ public class Puzzle {
                     tempState.setH(this.heuristic.calculateH(tempState, this.goalState)); //TODO: add a heuristic here
                     if (!this.visited.containsKey(tempState)) {
                         this.visitingQueue.add(tempState);
+                        nodesGenerated++;
                     }
                 }
 
@@ -85,6 +88,7 @@ public class Puzzle {
                     tempState.setH(this.heuristic.calculateH(tempState, this.goalState)); //TODO: add a heuristic here
                     if (!this.visited.containsKey(tempState)) {
                         this.visitingQueue.add(tempState);
+                        nodesGenerated++;
                     }
                 }
 
@@ -96,6 +100,7 @@ public class Puzzle {
                     tempState.setH(this.heuristic.calculateH(tempState, this.goalState)); //TODO: add a heuristic here
                     if (!this.visited.containsKey(tempState)) {
                         this.visitingQueue.add(tempState);
+                        nodesGenerated++;
                     }
                 }
 
@@ -115,6 +120,18 @@ public class Puzzle {
             System.out.println(tempState + "; G: " + tempState.getG() + ", H: " + this.heuristic.calculateH(tempState, this.goalState) + ", Iteration: " + tempState.getIteration());
         }
         return;
+    }
+
+    public void createProblemSet(int[] numMoves) {
+        State currState, tempState;
+        int[] end_arr = {1, 2, 3, 8, 0, 4, 7, 6, 5};
+        State endGoal = new State(end_arr);
+        PriorityQueue<State> currentQueue = new PriorityQueue<State>(400, new CompareMostMoves());
+        currState = this.goalState;
+        
+        for (int i = 0; i < numMoves.length; i++) {
+
+        }
     }
 
     public State[] order() { //Required method for assignment. Deprecated by priority queue
