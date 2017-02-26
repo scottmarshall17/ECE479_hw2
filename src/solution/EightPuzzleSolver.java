@@ -1,5 +1,7 @@
 package solution;
 
+import java.io.*;
+
 /**
  * Created by Scott on 2/23/2017.
  */
@@ -17,12 +19,42 @@ public class EightPuzzleSolver {
         Puzzle complexPuzzle = new Puzzle(complexStart, complexGoal, new DisplacedTiles());
         Puzzle manhattanPuzzle = new Puzzle(complexStart, complexGoal, new ManhattanDistance());
         Puzzle hardestPuzzle = new Puzzle(hardStart, hardGoal, new ManhattanDistance());
+        Puzzle puzzleCreator = new Puzzle();
+        int[] moveCreator = {5, 10, 15};
+
+        //Read in the input file
+        File file = new File("inputFile.txt");
+        try {
+            FileReader fileReader = new FileReader(file);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String fileLine;
+            String[] puzzleString;
+            State puzzleStart;
+            Puzzle myPuzzle;
+            int[] goalState_arr = {1, 2, 3, 8, 0, 4, 7, 6, 5};
+            State goalState = new State(goalState_arr);
+            int[] puzzleMoves = new int[9];
+            while ((fileLine = bufferedReader.readLine()) != null) {
+                puzzleString = fileLine.split(",");
+                for (int i = 0; i < puzzleString.length; i++) {
+                    puzzleMoves[i] = Integer.parseInt(puzzleString[i]);
+                }
+                puzzleStart = new State(puzzleMoves);
+                myPuzzle = new Puzzle(puzzleStart, goalState, new ManhattanDistance());
+                myPuzzle.solve();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
+        /*
         simplePuzzle.solve();
         complexPuzzle.solve();
         manhattanPuzzle.solve();
         hardestPuzzle.solve();
+        puzzleCreator.createProblemSet(moveCreator, 5);
+        */
 
         return;
     }

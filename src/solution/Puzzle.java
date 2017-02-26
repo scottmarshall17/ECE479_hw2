@@ -122,15 +122,75 @@ public class Puzzle {
         return;
     }
 
-    public void createProblemSet(int[] numMoves) {
+    public void createProblemSet(int[] numMoves, int numPuzzles) {
         State currState, tempState;
         int[] end_arr = {1, 2, 3, 8, 0, 4, 7, 6, 5};
         State endGoal = new State(end_arr);
         PriorityQueue<State> currentQueue = new PriorityQueue<State>(400, new CompareMostMoves());
         currState = this.goalState;
-        
-        for (int i = 0; i < numMoves.length; i++) {
+        int targetMoves = 0;
+        Arrays.sort(numMoves);
+        int numFound = 0;
 
+        for (int i = 0; i < numMoves.length; i++) {
+            targetMoves = numMoves[i];
+            currState = endGoal;
+            currentQueue.add(currState);
+            numFound = 0;
+
+            while (!currentQueue.isEmpty() && numFound < numPuzzles) {
+                currState = currentQueue.poll();
+                if (currState.getG() == targetMoves) {
+                    System.out.println(currState);
+                    numFound++;
+                    continue;
+                } else if (visited.containsKey(currState)) {
+                    continue;
+                } else {
+                    if (currState.moveUp()) {
+                        tempState = new State(currState);
+                        currState.moveDown();
+                        tempState.setFrom(currState);
+                        tempState.setG(currState.getG() + 1);
+                        if (!this.visited.containsKey(tempState)) {
+                            currentQueue.add(tempState);
+                        }
+                    }
+                    if (currState.moveRight()) {
+                        tempState = new State(currState);
+                        currState.moveLeft();
+                        tempState.setFrom(currState);
+                        tempState.setG(currState.getG() + 1);
+                        if (!this.visited.containsKey(tempState)) {
+                            currentQueue.add(tempState);
+                        }
+                    }
+
+                    if (currState.moveDown()) {
+                        tempState = new State(currState);
+                        currState.moveUp();
+                        tempState.setFrom(currState);
+                        tempState.setG(currState.getG() + 1);
+                        if (!this.visited.containsKey(tempState)) {
+                            currentQueue.add(tempState);
+                        }
+                    }
+
+                    if (currState.moveLeft()) {
+                        tempState = new State(currState);
+                        currState.moveRight();
+                        tempState.setFrom(currState);
+                        tempState.setG(currState.getG() + 1);
+                        if (!this.visited.containsKey(tempState)) {
+                            currentQueue.add(tempState);
+                        }
+                    }
+                    this.visited.put(currState, currState.getFrom());
+                }
+            }
+
+            currentQueue.clear();
+            this.visited.clear();
         }
     }
 
