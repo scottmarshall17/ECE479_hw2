@@ -1,0 +1,200 @@
+Start of Problem Set 1
+	Problem 1, Set 1
+	The solution was found in 5 steps and 10 states were searched. Branching factor: 1.2407233
+	1, 3, 4, 8, 2, 5, 7, 0, 6; Move: null,	G: 0, H: 10, Iteration: 0
+	1, 3, 4, 8, 2, 5, 7, 6, 0; Move: Right,	G: 1, H: 8, Iteration: 1
+	1, 3, 4, 8, 2, 0, 7, 6, 5; Move: Up,	G: 2, H: 6, Iteration: 2
+	1, 3, 0, 8, 2, 4, 7, 6, 5; Move: Up,	G: 3, H: 4, Iteration: 3
+	1, 0, 3, 8, 2, 4, 7, 6, 5; Move: Left,	G: 4, H: 2, Iteration: 4
+	1, 2, 3, 8, 0, 4, 7, 6, 5; Move: Down,	G: 5, H: 0, Iteration: 5
+	Problem 2, Set 1
+	The solution was found in 5 steps and 12 states were searched. Branching factor: 1.3076189
+	1, 0, 4, 8, 3, 2, 7, 6, 5; Move: null,	G: 0, H: 8, Iteration: 0
+	1, 3, 4, 8, 0, 2, 7, 6, 5; Move: Down,	G: 1, H: 7, Iteration: 1
+	1, 3, 4, 8, 2, 0, 7, 6, 5; Move: Right,	G: 2, H: 6, Iteration: 2
+	1, 3, 0, 8, 2, 4, 7, 6, 5; Move: Up,	G: 3, H: 4, Iteration: 3
+	1, 0, 3, 8, 2, 4, 7, 6, 5; Move: Left,	G: 4, H: 2, Iteration: 4
+	1, 2, 3, 8, 0, 4, 7, 6, 5; Move: Down,	G: 5, H: 0, Iteration: 5
+	Problem 3, Set 1
+	The solution was found in 5 steps and 12 states were searched. Branching factor: 1.3076189
+	1, 3, 4, 0, 8, 2, 7, 6, 5; Move: null,	G: 0, H: 9, Iteration: 0
+	1, 3, 4, 8, 0, 2, 7, 6, 5; Move: Right,	G: 1, H: 7, Iteration: 1
+	1, 3, 4, 8, 2, 0, 7, 6, 5; Move: Right,	G: 2, H: 6, Iteration: 2
+	1, 3, 0, 8, 2, 4, 7, 6, 5; Move: Up,	G: 3, H: 4, Iteration: 3
+	1, 0, 3, 8, 2, 4, 7, 6, 5; Move: Left,	G: 4, H: 2, Iteration: 4
+	1, 2, 3, 8, 0, 4, 7, 6, 5; Move: Down,	G: 5, H: 0, Iteration: 5
+	Problem 4, Set 1
+	The solution was found in 5 steps and 12 states were searched. Branching factor: 1.3076189
+	1, 3, 4, 8, 6, 2, 7, 0, 5; Move: null,	G: 0, H: 9, Iteration: 0
+	1, 3, 4, 8, 0, 2, 7, 6, 5; Move: Up,	G: 1, H: 7, Iteration: 1
+	1, 3, 4, 8, 2, 0, 7, 6, 5; Move: Right,	G: 2, H: 6, Iteration: 2
+	1, 3, 0, 8, 2, 4, 7, 6, 5; Move: Up,	G: 3, H: 4, Iteration: 3
+	1, 0, 3, 8, 2, 4, 7, 6, 5; Move: Left,	G: 4, H: 2, Iteration: 4
+	1, 2, 3, 8, 0, 4, 7, 6, 5; Move: Down,	G: 5, H: 0, Iteration: 5
+	Problem 5, Set 1
+	The solution was found in 5 steps and 12 states were searched. Branching factor: 1.3076189
+	8, 0, 3, 2, 1, 4, 7, 6, 5; Move: null,	G: 0, H: 8, Iteration: 0
+	8, 1, 3, 2, 0, 4, 7, 6, 5; Move: Down,	G: 1, H: 7, Iteration: 1
+	8, 1, 3, 0, 2, 4, 7, 6, 5; Move: Left,	G: 2, H: 6, Iteration: 2
+	0, 1, 3, 8, 2, 4, 7, 6, 5; Move: Up,	G: 3, H: 4, Iteration: 3
+	1, 0, 3, 8, 2, 4, 7, 6, 5; Move: Right,	G: 4, H: 2, Iteration: 4
+	1, 2, 3, 8, 0, 4, 7, 6, 5; Move: Down,	G: 5, H: 0, Iteration: 5
+	End of Problem Set 1
+Start of Problem Set 2
+	Problem 1, Set 2
+	The solution was found in 10 steps and 27 states were searched. Branching factor: 1.1752172
+	1, 4, 5, 8, 3, 6, 7, 2, 0; Move: null,	G: 0, H: 15, Iteration: 0
+	1, 4, 5, 8, 3, 0, 7, 2, 6; Move: Up,	G: 1, H: 14, Iteration: 1
+	1, 4, 0, 8, 3, 5, 7, 2, 6; Move: Up,	G: 2, H: 13, Iteration: 2
+	1, 0, 4, 8, 3, 5, 7, 2, 6; Move: Left,	G: 3, H: 12, Iteration: 4
+	1, 3, 4, 8, 0, 5, 7, 2, 6; Move: Down,	G: 4, H: 11, Iteration: 7
+	1, 3, 4, 8, 2, 5, 7, 0, 6; Move: Down,	G: 5, H: 10, Iteration: 9
+	1, 3, 4, 8, 2, 5, 7, 6, 0; Move: Right,	G: 6, H: 8, Iteration: 10
+	1, 3, 4, 8, 2, 0, 7, 6, 5; Move: Up,	G: 7, H: 6, Iteration: 11
+	1, 3, 0, 8, 2, 4, 7, 6, 5; Move: Up,	G: 8, H: 4, Iteration: 12
+	1, 0, 3, 8, 2, 4, 7, 6, 5; Move: Left,	G: 9, H: 2, Iteration: 13
+	1, 2, 3, 8, 0, 4, 7, 6, 5; Move: Down,	G: 10, H: 0, Iteration: 14
+	Problem 2, Set 2
+	The solution was found in 10 steps and 51 states were searched. Branching factor: 1.2855554
+	1, 4, 5, 8, 0, 3, 7, 2, 6; Move: null,	G: 0, H: 13, Iteration: 0
+	1, 4, 5, 8, 3, 0, 7, 2, 6; Move: Right,	G: 1, H: 14, Iteration: 8
+	1, 4, 0, 8, 3, 5, 7, 2, 6; Move: Up,	G: 2, H: 13, Iteration: 11
+	1, 0, 4, 8, 3, 5, 7, 2, 6; Move: Left,	G: 3, H: 12, Iteration: 18
+	1, 3, 4, 8, 0, 5, 7, 2, 6; Move: Down,	G: 4, H: 11, Iteration: 20
+	1, 3, 4, 8, 2, 5, 7, 0, 6; Move: Down,	G: 5, H: 10, Iteration: 22
+	1, 3, 4, 8, 2, 5, 7, 6, 0; Move: Right,	G: 6, H: 8, Iteration: 23
+	1, 3, 4, 8, 2, 0, 7, 6, 5; Move: Up,	G: 7, H: 6, Iteration: 24
+	1, 3, 0, 8, 2, 4, 7, 6, 5; Move: Up,	G: 8, H: 4, Iteration: 25
+	1, 0, 3, 8, 2, 4, 7, 6, 5; Move: Left,	G: 9, H: 2, Iteration: 26
+	1, 2, 3, 8, 0, 4, 7, 6, 5; Move: Down,	G: 10, H: 0, Iteration: 27
+	Problem 3, Set 2
+	The solution was found in 10 steps and 40 states were searched. Branching factor: 1.2433366
+	8, 1, 4, 3, 0, 5, 7, 2, 6; Move: null,	G: 0, H: 17, Iteration: 0
+	8, 1, 4, 0, 3, 5, 7, 2, 6; Move: Left,	G: 1, H: 16, Iteration: 11
+	0, 1, 4, 8, 3, 5, 7, 2, 6; Move: Up,	G: 2, H: 14, Iteration: 12
+	1, 0, 4, 8, 3, 5, 7, 2, 6; Move: Right,	G: 3, H: 12, Iteration: 13
+	1, 3, 4, 8, 0, 5, 7, 2, 6; Move: Down,	G: 4, H: 11, Iteration: 14
+	1, 3, 4, 8, 2, 5, 7, 0, 6; Move: Down,	G: 5, H: 10, Iteration: 15
+	1, 3, 4, 8, 2, 5, 7, 6, 0; Move: Right,	G: 6, H: 8, Iteration: 16
+	1, 3, 4, 8, 2, 0, 7, 6, 5; Move: Up,	G: 7, H: 6, Iteration: 17
+	1, 3, 0, 8, 2, 4, 7, 6, 5; Move: Up,	G: 8, H: 4, Iteration: 18
+	1, 0, 3, 8, 2, 4, 7, 6, 5; Move: Left,	G: 9, H: 2, Iteration: 19
+	1, 2, 3, 8, 0, 4, 7, 6, 5; Move: Down,	G: 10, H: 0, Iteration: 20
+	Problem 4, Set 2
+	The solution was found in 10 steps and 19 states were searched. Branching factor: 1.1140834
+	8, 1, 4, 7, 3, 5, 0, 2, 6; Move: null,	G: 0, H: 18, Iteration: 0
+	8, 1, 4, 0, 3, 5, 7, 2, 6; Move: Up,	G: 1, H: 16, Iteration: 1
+	0, 1, 4, 8, 3, 5, 7, 2, 6; Move: Up,	G: 2, H: 14, Iteration: 2
+	1, 0, 4, 8, 3, 5, 7, 2, 6; Move: Right,	G: 3, H: 12, Iteration: 3
+	1, 3, 4, 8, 0, 5, 7, 2, 6; Move: Down,	G: 4, H: 11, Iteration: 4
+	1, 3, 4, 8, 2, 5, 7, 0, 6; Move: Down,	G: 5, H: 10, Iteration: 5
+	1, 3, 4, 8, 2, 5, 7, 6, 0; Move: Right,	G: 6, H: 8, Iteration: 6
+	1, 3, 4, 8, 2, 0, 7, 6, 5; Move: Up,	G: 7, H: 6, Iteration: 7
+	1, 3, 0, 8, 2, 4, 7, 6, 5; Move: Up,	G: 8, H: 4, Iteration: 8
+	1, 0, 3, 8, 2, 4, 7, 6, 5; Move: Left,	G: 9, H: 2, Iteration: 9
+	1, 2, 3, 8, 0, 4, 7, 6, 5; Move: Down,	G: 10, H: 0, Iteration: 10
+	Problem 5, Set 2
+	The solution was found in 10 steps and 56 states were searched. Branching factor: 1.3018634
+	1, 5, 3, 8, 0, 4, 7, 2, 6; Move: null,	G: 0, H: 9, Iteration: 0
+	1, 0, 3, 8, 5, 4, 7, 2, 6; Move: Up,	G: 1, H: 8, Iteration: 1
+	1, 3, 0, 8, 5, 4, 7, 2, 6; Move: Right,	G: 2, H: 10, Iteration: 7
+	1, 3, 4, 8, 5, 0, 7, 2, 6; Move: Down,	G: 3, H: 12, Iteration: 21
+	1, 3, 4, 8, 0, 5, 7, 2, 6; Move: Left,	G: 4, H: 11, Iteration: 24
+	1, 3, 4, 8, 2, 5, 7, 0, 6; Move: Down,	G: 5, H: 10, Iteration: 26
+	1, 3, 4, 8, 2, 5, 7, 6, 0; Move: Right,	G: 6, H: 8, Iteration: 27
+	1, 3, 4, 8, 2, 0, 7, 6, 5; Move: Up,	G: 7, H: 6, Iteration: 28
+	1, 3, 0, 8, 2, 4, 7, 6, 5; Move: Up,	G: 8, H: 4, Iteration: 29
+	1, 0, 3, 8, 2, 4, 7, 6, 5; Move: Left,	G: 9, H: 2, Iteration: 30
+	1, 2, 3, 8, 0, 4, 7, 6, 5; Move: Down,	G: 10, H: 0, Iteration: 31
+	End of Problem Set 2
+Start of Problem Set 3
+	Problem 1, Set 3
+	The solution was found in 15 steps and 181 states were searched. Branching factor: 1.2800792
+	1, 5, 6, 8, 4, 0, 7, 3, 2; Move: null,	G: 0, H: 18, Iteration: 0
+	1, 5, 6, 8, 4, 2, 7, 3, 0; Move: Down,	G: 1, H: 17, Iteration: 6
+	1, 5, 6, 8, 4, 2, 7, 0, 3; Move: Left,	G: 2, H: 16, Iteration: 8
+	1, 5, 6, 8, 0, 2, 7, 4, 3; Move: Up,	G: 3, H: 17, Iteration: 57
+	1, 0, 6, 8, 5, 2, 7, 4, 3; Move: Up,	G: 4, H: 16, Iteration: 60
+	1, 6, 0, 8, 5, 2, 7, 4, 3; Move: Right,	G: 5, H: 15, Iteration: 64
+	1, 6, 2, 8, 5, 0, 7, 4, 3; Move: Down,	G: 6, H: 14, Iteration: 84
+	1, 6, 2, 8, 5, 3, 7, 4, 0; Move: Down,	G: 7, H: 13, Iteration: 86
+	1, 6, 2, 8, 5, 3, 7, 0, 4; Move: Left,	G: 8, H: 12, Iteration: 88
+	1, 6, 2, 8, 0, 3, 7, 5, 4; Move: Up,	G: 9, H: 11, Iteration: 91
+	1, 0, 2, 8, 6, 3, 7, 5, 4; Move: Up,	G: 10, H: 10, Iteration: 93
+	1, 2, 0, 8, 6, 3, 7, 5, 4; Move: Right,	G: 11, H: 8, Iteration: 94
+	1, 2, 3, 8, 6, 0, 7, 5, 4; Move: Down,	G: 12, H: 6, Iteration: 95
+	1, 2, 3, 8, 6, 4, 7, 5, 0; Move: Down,	G: 13, H: 4, Iteration: 96
+	1, 2, 3, 8, 6, 4, 7, 0, 5; Move: Left,	G: 14, H: 2, Iteration: 97
+	1, 2, 3, 8, 0, 4, 7, 6, 5; Move: Up,	G: 15, H: 0, Iteration: 98
+	Problem 2, Set 3
+	The solution was found in 15 steps and 62 states were searched. Branching factor: 1.1637352
+	8, 1, 5, 0, 4, 6, 7, 3, 2; Move: null,	G: 0, H: 20, Iteration: 0
+	0, 1, 5, 8, 4, 6, 7, 3, 2; Move: Up,	G: 1, H: 18, Iteration: 1
+	1, 0, 5, 8, 4, 6, 7, 3, 2; Move: Right,	G: 2, H: 16, Iteration: 2
+	1, 4, 5, 8, 0, 6, 7, 3, 2; Move: Down,	G: 3, H: 17, Iteration: 4
+	1, 4, 5, 8, 3, 6, 7, 0, 2; Move: Down,	G: 4, H: 16, Iteration: 6
+	1, 4, 5, 8, 3, 6, 7, 2, 0; Move: Right,	G: 5, H: 15, Iteration: 18
+	1, 4, 5, 8, 3, 0, 7, 2, 6; Move: Up,	G: 6, H: 14, Iteration: 21
+	1, 4, 0, 8, 3, 5, 7, 2, 6; Move: Up,	G: 7, H: 13, Iteration: 23
+	1, 0, 4, 8, 3, 5, 7, 2, 6; Move: Left,	G: 8, H: 12, Iteration: 25
+	1, 3, 4, 8, 0, 5, 7, 2, 6; Move: Down,	G: 9, H: 11, Iteration: 28
+	1, 3, 4, 8, 2, 5, 7, 0, 6; Move: Down,	G: 10, H: 10, Iteration: 29
+	1, 3, 4, 8, 2, 5, 7, 6, 0; Move: Right,	G: 11, H: 8, Iteration: 30
+	1, 3, 4, 8, 2, 0, 7, 6, 5; Move: Up,	G: 12, H: 6, Iteration: 31
+	1, 3, 0, 8, 2, 4, 7, 6, 5; Move: Up,	G: 13, H: 4, Iteration: 32
+	1, 0, 3, 8, 2, 4, 7, 6, 5; Move: Left,	G: 14, H: 2, Iteration: 33
+	1, 2, 3, 8, 0, 4, 7, 6, 5; Move: Down,	G: 15, H: 0, Iteration: 34
+	Problem 3, Set 3
+	The solution was found in 15 steps and 141 states were searched. Branching factor: 1.2530297
+	1, 0, 4, 8, 6, 5, 7, 3, 2; Move: null,	G: 0, H: 14, Iteration: 0
+	1, 6, 4, 8, 0, 5, 7, 3, 2; Move: Down,	G: 1, H: 15, Iteration: 2
+	1, 6, 4, 8, 5, 0, 7, 3, 2; Move: Right,	G: 2, H: 16, Iteration: 33
+	1, 6, 4, 8, 5, 2, 7, 3, 0; Move: Down,	G: 3, H: 15, Iteration: 38
+	1, 6, 4, 8, 5, 2, 7, 0, 3; Move: Left,	G: 4, H: 14, Iteration: 39
+	1, 6, 4, 8, 0, 2, 7, 5, 3; Move: Up,	G: 5, H: 13, Iteration: 40
+	1, 0, 4, 8, 6, 2, 7, 5, 3; Move: Up,	G: 6, H: 12, Iteration: 41
+	1, 4, 0, 8, 6, 2, 7, 5, 3; Move: Right,	G: 7, H: 13, Iteration: 65
+	1, 4, 2, 8, 6, 0, 7, 5, 3; Move: Down,	G: 8, H: 12, Iteration: 68
+	1, 4, 2, 8, 6, 3, 7, 5, 0; Move: Down,	G: 9, H: 11, Iteration: 74
+	1, 4, 2, 8, 6, 3, 7, 0, 5; Move: Left,	G: 10, H: 9, Iteration: 75
+	1, 4, 2, 8, 0, 3, 7, 6, 5; Move: Up,	G: 11, H: 7, Iteration: 76
+	1, 0, 2, 8, 4, 3, 7, 6, 5; Move: Up,	G: 12, H: 6, Iteration: 77
+	1, 2, 0, 8, 4, 3, 7, 6, 5; Move: Right,	G: 13, H: 4, Iteration: 78
+	1, 2, 3, 8, 4, 0, 7, 6, 5; Move: Down,	G: 14, H: 2, Iteration: 79
+	1, 2, 3, 8, 0, 4, 7, 6, 5; Move: Left,	G: 15, H: 0, Iteration: 80
+	Problem 4, Set 3
+	The solution was found in 15 steps and 130 states were searched. Branching factor: 1.2442367
+	1, 4, 5, 8, 6, 2, 7, 0, 3; Move: null,	G: 0, H: 14, Iteration: 0
+	1, 4, 5, 8, 0, 2, 7, 6, 3; Move: Up,	G: 1, H: 12, Iteration: 1
+	1, 0, 5, 8, 4, 2, 7, 6, 3; Move: Up,	G: 2, H: 11, Iteration: 2
+	1, 5, 0, 8, 4, 2, 7, 6, 3; Move: Right,	G: 3, H: 12, Iteration: 12
+	1, 5, 2, 8, 4, 0, 7, 6, 3; Move: Down,	G: 4, H: 11, Iteration: 14
+	1, 5, 2, 8, 4, 3, 7, 6, 0; Move: Down,	G: 5, H: 10, Iteration: 17
+	1, 5, 2, 8, 4, 3, 7, 0, 6; Move: Left,	G: 6, H: 12, Iteration: 33
+	1, 5, 2, 8, 0, 3, 7, 4, 6; Move: Up,	G: 7, H: 13, Iteration: 66
+	1, 0, 2, 8, 5, 3, 7, 4, 6; Move: Up,	G: 8, H: 12, Iteration: 68
+	1, 2, 0, 8, 5, 3, 7, 4, 6; Move: Right,	G: 9, H: 10, Iteration: 69
+	1, 2, 3, 8, 5, 0, 7, 4, 6; Move: Down,	G: 10, H: 8, Iteration: 70
+	1, 2, 3, 8, 0, 5, 7, 4, 6; Move: Left,	G: 11, H: 7, Iteration: 71
+	1, 2, 3, 8, 4, 5, 7, 0, 6; Move: Down,	G: 12, H: 6, Iteration: 72
+	1, 2, 3, 8, 4, 5, 7, 6, 0; Move: Right,	G: 13, H: 4, Iteration: 73
+	1, 2, 3, 8, 4, 0, 7, 6, 5; Move: Up,	G: 14, H: 2, Iteration: 74
+	1, 2, 3, 8, 0, 4, 7, 6, 5; Move: Left,	G: 15, H: 0, Iteration: 75
+	Problem 5, Set 3
+	The solution was found in 15 steps and 62 states were searched. Branching factor: 1.1637352
+	4, 0, 5, 1, 8, 6, 7, 3, 2; Move: null,	G: 0, H: 22, Iteration: 0
+	0, 4, 5, 1, 8, 6, 7, 3, 2; Move: Left,	G: 1, H: 21, Iteration: 1
+	1, 4, 5, 0, 8, 6, 7, 3, 2; Move: Down,	G: 2, H: 19, Iteration: 2
+	1, 4, 5, 8, 0, 6, 7, 3, 2; Move: Right,	G: 3, H: 17, Iteration: 3
+	1, 4, 5, 8, 3, 6, 7, 0, 2; Move: Down,	G: 4, H: 16, Iteration: 6
+	1, 4, 5, 8, 3, 6, 7, 2, 0; Move: Right,	G: 5, H: 15, Iteration: 8
+	1, 4, 5, 8, 3, 0, 7, 2, 6; Move: Up,	G: 6, H: 14, Iteration: 17
+	1, 4, 0, 8, 3, 5, 7, 2, 6; Move: Up,	G: 7, H: 13, Iteration: 19
+	1, 0, 4, 8, 3, 5, 7, 2, 6; Move: Left,	G: 8, H: 12, Iteration: 22
+	1, 3, 4, 8, 0, 5, 7, 2, 6; Move: Down,	G: 9, H: 11, Iteration: 25
+	1, 3, 4, 8, 2, 5, 7, 0, 6; Move: Down,	G: 10, H: 10, Iteration: 28
+	1, 3, 4, 8, 2, 5, 7, 6, 0; Move: Right,	G: 11, H: 8, Iteration: 29
+	1, 3, 4, 8, 2, 0, 7, 6, 5; Move: Up,	G: 12, H: 6, Iteration: 30
+	1, 3, 0, 8, 2, 4, 7, 6, 5; Move: Up,	G: 13, H: 4, Iteration: 31
+	1, 0, 3, 8, 2, 4, 7, 6, 5; Move: Left,	G: 14, H: 2, Iteration: 32
+	1, 2, 3, 8, 0, 4, 7, 6, 5; Move: Down,	G: 15, H: 0, Iteration: 33

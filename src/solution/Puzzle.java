@@ -145,7 +145,7 @@ public class Puzzle {
         while (!solution.isEmpty()) {
             tempState = solution.pop();
             if (outFile.equals("stdout")) {
-                System.out.println(tempState + "; G: " + tempState.getG() + ", H: " + this.heuristic.calculateH(tempState, this.goalState) + ", Iteration: " + tempState.getIteration());
+                System.out.println(tempState + "; Move: " + tempState.getLastAction() + ",\tG: " + tempState.getG() + ", H: " + this.heuristic.calculateH(tempState, this.goalState) + ", Iteration: " + tempState.getIteration());
             }
             else {
                 printString = "\t" + tempState + "; Move: " + tempState.getLastAction() + ",\tG: " + tempState.getG() + ", H: " + this.heuristic.calculateH(tempState, this.goalState) + ", Iteration: " + tempState.getIteration() + "\n";

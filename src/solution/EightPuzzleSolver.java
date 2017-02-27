@@ -1,6 +1,9 @@
 package solution;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 
 /**
  * Created by Scott on 2/23/2017.
@@ -31,18 +34,27 @@ public class EightPuzzleSolver {
             String[] puzzleString;
             State puzzleStart;
             Puzzle myPuzzle;
+            int problemSet = 0;
             int[] goalState_arr = {1, 2, 3, 8, 0, 4, 7, 6, 5};
             State goalState = new State(goalState_arr);
             int[] puzzleMoves = new int[9];
             int problemNumber = 0;
             while ((fileLine = bufferedReader.readLine()) != null) {
+                problemSet = 1 + (problemNumber / 5);
                 puzzleString = fileLine.split(",");
                 for (int i = 0; i < puzzleString.length; i++) {
                     puzzleMoves[i] = Integer.parseInt(puzzleString[i]);
                 }
                 puzzleStart = new State(puzzleMoves);
+                EightPuzzleSolver.printProblemHeader("OutfileHeuristic1.txt", problemSet, (problemNumber%5)+1);
+                myPuzzle = new Puzzle(puzzleStart, goalState, new DisplacedTiles());
+                myPuzzle.solve("OutfileHeuristic1.txt");
+                EightPuzzleSolver.printProblemHeader("OutfileHeuristic2.txt", problemSet, (problemNumber%5)+1);
                 myPuzzle = new Puzzle(puzzleStart, goalState, new ManhattanDistance());
-                myPuzzle.solve("stdout");
+                myPuzzle.solve("OutfileHeuristic2.txt");
+                EightPuzzleSolver.printProblemHeader("OutfileHeuristic3.txt", problemSet, (problemNumber%5)+1);
+                myPuzzle = new Puzzle(puzzleStart, goalState, new DisplacedManhattan());
+                myPuzzle.solve("OutfileHeuristic3.txt");
                 problemNumber++;
             }
         } catch (IOException e) {
@@ -58,5 +70,49 @@ public class EightPuzzleSolver {
         */
 
         return;
+    }
+
+    public static void printProblemHeader(String outputFileName, int problemSet, int problemNum) {
+        String printString;
+        int previousSet = problemSet - 1;
+        if ( problemNum == 1 && problemSet == 1) {
+            try {
+                printString = "Start of Problem Set " + problemSet + "\n\tProblem " + problemNum + ", Set " + problemSet + "\n";
+                Files.write(Paths.get(outputFileName), printString.getBytes(), StandardOpenOption.CREATE_NEW);
+            }
+            catch (IOException e) {
+                try {
+                    printString = "Start of Problem Set " + problemSet + "\n\tProblem " + problemNum + ", Set " + problemSet + "\n";
+                    Files.write(Paths.get(outputFileName), printString.getBytes(), StandardOpenOption.APPEND);
+                }
+                catch (IOException f) {
+                    f.printStackTrace();
+                }
+            }
+        }
+        else if (problemNum == 1) {
+            try {
+                printString = "\tEnd of Problem Set " + previousSet + "\nStart of Problem Set " + problemSet + "\n\tProblem " + problemNum + ", Set " + problemSet + "\n";
+                Files.write(Paths.get(outputFileName), printString.getBytes(), StandardOpenOption.CREATE_NEW);
+            }
+            catch (IOException e) {
+                try {
+                    printString = "\tEnd of Problem Set " + previousSet + "\nStart of Problem Set " + problemSet + "\n\tProblem " + problemNum + ", Set " + problemSet + "\n";
+                    Files.write(Paths.get(outputFileName), printString.getBytes(), StandardOpenOption.APPEND);
+                }
+                catch (IOException f) {
+                    f.printStackTrace();
+                }
+            }
+        }
+        else {
+            try {
+                printString = "\tProblem " + problemNum + ", Set " + problemSet + "\n";
+                Files.write(Paths.get(outputFileName), printString.getBytes(), StandardOpenOption.APPEND);
+            }
+            catch (IOException f) {
+                f.printStackTrace();
+            }
+        }
     }
 }
