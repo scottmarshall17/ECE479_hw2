@@ -49,7 +49,6 @@ public class EightPuzzleSolver {
             e.printStackTrace();
         }
 
-
         /*
         simplePuzzle.solve();
         complexPuzzle.solve();
