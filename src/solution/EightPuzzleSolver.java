@@ -42,7 +42,7 @@ public class EightPuzzleSolver {
                 }
                 puzzleStart = new State(puzzleMoves);
                 myPuzzle = new Puzzle(puzzleStart, goalState, new ManhattanDistance());
-                myPuzzle.solve("test_output.txt");
+                myPuzzle.solve("stdout");
                 problemNumber++;
             }
         } catch (IOException e) {

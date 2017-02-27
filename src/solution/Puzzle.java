@@ -47,16 +47,16 @@ public class Puzzle {
             if (currState.equals(this.goalState)) {
                 if (outFile.equals("stdout")) {
                     System.out.println("A solution was found!");
-                    System.out.println("The solution was found in " + currState.getG() + " steps and " + nodesGenerated + " states were searched. Branching factor: " + Math.pow(nodesGenerated, 1.0/currState.getG()));
+                    System.out.println("The solution was found in " + currState.getG() + " steps and " + nodesGenerated + " states were searched. Branching factor: " + this.calculateBranchingFactor(currState.getG(), nodesGenerated));
                 }
                 else {
                     try {
-                        printString = "\tThe solution was found in " + currState.getG() + " steps and " + nodesGenerated + " states were searched. Branching factor: " + Math.pow(nodesGenerated, 1.0/currState.getG()) + "\n";
+                        printString = "\tThe solution was found in " + currState.getG() + " steps and " + nodesGenerated + " states were searched. Branching factor: " + this.calculateBranchingFactor(currState.getG(), nodesGenerated) + "\n";
                         Files.write(Paths.get(outFile), printString.getBytes(), StandardOpenOption.CREATE_NEW);
                     }
                     catch (IOException e) {
                         try {
-                            printString = "\tThe solution was found in " + currState.getG() + " steps and " + nodesGenerated + " states were searched. Branching factor: " + Math.pow(nodesGenerated, 1.0/currState.getG()) + "\n";
+                            printString = "\tThe solution was found in " + currState.getG() + " steps and " + nodesGenerated + " states were searched. Branching factor: " + this.calculateBranchingFactor(currState.getG(), nodesGenerated) + "\n";
                             Files.write(Paths.get(outFile), printString.getBytes(), StandardOpenOption.APPEND);
                         }
                         catch (IOException f) {
@@ -235,6 +235,31 @@ public class Puzzle {
     public State[] order() { //Required method for assignment. Deprecated by priority queue
         State[] result = this.visitingQueue.toArray(new State[0]);
         Arrays.sort(result, new StateComparator());
+        return result;
+    }
+
+    /*
+    ** calculateBranchingFactor() solves the polynomial equation using the Newton-Raphson Method for root finding.
+     */
+    public float calculateBranchingFactor(int depth, int numVisited) {
+        float result = 0;
+        float f_x = 0;
+        float df_x = 0;
+        float x0 = 2;
+        float x1 = 1;
+
+        while (Math.abs(x0 - x1) > 0.000001 ) {
+            f_x = 0;
+            df_x = 0;
+            x0 = x1;
+            for (int i = 1; i <= depth; i++) {
+                f_x += Math.pow(x0, i);
+                df_x += i*Math.pow(x0, i - 1);
+            }
+            f_x -= numVisited;
+            x1 = x0 - (f_x / df_x);
+        }
+        result = x1;
         return result;
     }
 
